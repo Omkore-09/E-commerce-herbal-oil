@@ -19,6 +19,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { checkAuth } from "./store/auth-slice"
 import { Skeleton } from "@/components/ui/skeleton"
+import AboutUs from "./components/shopping-view/AboutUs"
+import ProductBenefits from "./components/shopping-view/ProductBenefits"
+import IngredientsPage from "./components/shopping-view/IngredientsPage"
+import ContactUs from "./components/shopping-view/ContactUs"
 
 
 
@@ -43,6 +47,7 @@ function App() {
     <h1> Header components</h1> */}
 
     <Routes>
+     
       <Route path="/auth" element={
         <CheckAuth isAuthenticated={isAuthenticated} user={user} >
           <AuthLayout />
@@ -53,6 +58,12 @@ function App() {
           <Route path="register"  element={<AuthRegister/>} />
 
       </Route>
+
+      {/* about us */}
+      <Route path="/shop/aboutus" element={<AboutUs/>} />
+      <Route path="/shop/product-benifits" element={<ProductBenefits/>} />
+      <Route path="/shop/ingredients" element={<IngredientsPage/>} />
+      <Route path="/shop/conatct-us" element={<ContactUs/>} />
 
       {/* admin routes  */}
       <Route path="/admin" element={

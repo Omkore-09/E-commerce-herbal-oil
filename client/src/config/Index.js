@@ -95,7 +95,7 @@ export const addProductFormElements = [
     {
         id: "aboutus",
         label: "About Us",
-        path: "/shop/listing",
+        path: "/shop/aboutus",
     },
     {
       id: "products",
@@ -118,11 +118,7 @@ export const addProductFormElements = [
       label: "Contact Us",
       path: "/shop/conatct-us",
     },
-    {
-      id: "search",
-      label: "Search",
-      path: "/shop/search",
-    },
+    
   ];
   
 
