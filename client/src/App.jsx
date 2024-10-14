@@ -43,6 +43,8 @@ function App() {
     <h1> Header components</h1> */}
 
     <Routes>
+
+     <Route path="/" element={<AuthLogin/>}>
       <Route path="/auth" element={
         <CheckAuth isAuthenticated={isAuthenticated} user={user} >
           <AuthLayout />
