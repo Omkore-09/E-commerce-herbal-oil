@@ -36,6 +36,10 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the homepage!');
+});
 app.use('/api/auth', authRouter)
 app.use('/api/admin/products', adminProductsRouter)
 app.use('/api/shop/products', shopProductsRouter)
