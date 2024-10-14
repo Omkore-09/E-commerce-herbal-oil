@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5000 ;
 
 app.use(
     cors({
-        origin : 'http://localhost:5173',
+        origin : 'https://e-commerce-herbal-oil-frontend.onrender.com',
         methods : ['GET' , 'POST' , 'DELETE' , 'PUT'],
         allowedHeaders : [
             "Content-Type",
@@ -36,6 +36,10 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.redirect('/auth/login');
+});
 app.use('/api/auth', authRouter)
 app.use('/api/admin/products', adminProductsRouter)
 app.use('/api/shop/products', shopProductsRouter)
