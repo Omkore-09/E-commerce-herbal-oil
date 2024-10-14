@@ -45,6 +45,8 @@ function App() {
     <Routes>
 
      <Route path="/" element={<AuthLogin/>}>
+
+      </Route>
       <Route path="/auth" element={
         <CheckAuth isAuthenticated={isAuthenticated} user={user} >
           <AuthLayout />
