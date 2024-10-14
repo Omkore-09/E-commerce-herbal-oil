@@ -12,7 +12,7 @@ export const fetchAllFilteredProducts = createAsyncThunk(
     "/products/fetchAllProducts",
     async () => {
       const result = await axios.get(
-        "http://localhost:5000/api/shop/products/get"
+        "https://e-commerce-herbal-oil-backend.onrender.com/api/shop/products/get"
       );
   
       return result?.data;
@@ -23,7 +23,7 @@ export const fetchAllFilteredProducts = createAsyncThunk(
     "/products/fetchProductDetails",
     async (id) => {
       const result = await axios.get(
-        `http://localhost:5000/api/shop/products/get/${id}`
+        `https://e-commerce-herbal-oil-backend.onrender.com/api/shop/products/get/${id}`
       );
   
       return result?.data;
