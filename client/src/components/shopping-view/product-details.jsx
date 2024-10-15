@@ -17,6 +17,9 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
   const {user} = useSelector(state =>state.auth);
 
   function handleAddToCart(getCurrentProductId){
+    if (!user) {
+      navigate('/auth/login');
+    } else {
     dispatch(
       addToCart({
         userId: user?.id,
@@ -31,6 +34,7 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
         });
       }
     });
+  }
   }
 
   function handleDialogClose(){
