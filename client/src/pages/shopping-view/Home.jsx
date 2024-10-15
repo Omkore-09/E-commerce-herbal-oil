@@ -24,6 +24,10 @@ import ProductDetailsDialog from "@/components/shopping-view/product-details";
 import AboutUs from "@/components/shopping-view/AboutUs";
 import { useNavigate } from "react-router-dom";
 
+import ReviewCarousel from "@/components/shopping-view/CustomerReviews";
+import BeforeAfterSlider from "@/components/shopping-view/BeforeAfter";
+import FullWidthImageSlider from "@/components/shopping-view/Slider";
+
 // import { useToast } from "@/components/ui/use-toast";
 
 const servicesProvided = [
@@ -93,7 +97,7 @@ const ShoppingHome = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="relative w-full h-[600px] overflow-hidden">
+      {/* <div className="relative w-full mt-5 h-[600px] overflow-hidden">
         {slides.map((slide, index) => (
           <img
             src={slide}
@@ -125,7 +129,8 @@ const ShoppingHome = () => {
         >
           <ChevronRightIcon className="w-4 h-4" />
         </Button>
-      </div>
+      </div> */}
+      <FullWidthImageSlider />
 
       {/* about us  */}
       
@@ -184,6 +189,15 @@ const ShoppingHome = () => {
           </div>
         </div>
       </section>
+                <BeforeAfterSlider />
+
+                <h2 className="text-4xl font-bold text-center  mt-6 mb-8">
+            {" "}
+            Before and after using Adivasi Hair oil{" "}
+          </h2>
+                <ReviewCarousel />
+                
+      
       <ProductDetailsDialog
         open={openDetailsDialog}
         setOpen={setOpenDetailsDialog}
