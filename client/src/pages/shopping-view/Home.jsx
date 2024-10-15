@@ -43,6 +43,7 @@ const ShoppingHome = () => {
   const { productList, productDetails } = useSelector(
     (state) => state.shoppingProducts
   );
+  
   const { user } = useSelector((state) => state.auth);
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
   const { toast } = useToast();
@@ -71,6 +72,11 @@ const ShoppingHome = () => {
   }, [productDetails]);
 
   function handleAddToCart(getCurrentProductId) {
+    if (!user) {
+      navigate('/auth/login');
+    } else {
+      
+    
     dispatch(
       addToCart({
         userId: user?.id,
@@ -85,6 +91,7 @@ const ShoppingHome = () => {
         });
       }
     });
+  }
   }
 
   const navigate = useNavigate();
