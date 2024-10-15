@@ -27,6 +27,7 @@ import { useNavigate } from "react-router-dom";
 import ReviewCarousel from "@/components/shopping-view/CustomerReviews";
 import BeforeAfterSlider from "@/components/shopping-view/BeforeAfter";
 import FullWidthImageSlider from "@/components/shopping-view/Slider";
+import ShoppingHeader from "@/components/shopping-view/Header";
 
 // import { useToast } from "@/components/ui/use-toast";
 
@@ -104,6 +105,7 @@ const ShoppingHome = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <ShoppingHeader />
       {/* <div className="relative w-full mt-5 h-[600px] overflow-hidden">
         {slides.map((slide, index) => (
           <img
