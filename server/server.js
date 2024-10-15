@@ -38,7 +38,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.redirect('/auth/login');
+    res.redirect('/home');
 });
 app.use('/api/auth', authRouter)
 app.use('/api/admin/products', adminProductsRouter)
