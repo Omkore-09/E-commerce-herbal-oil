@@ -80,7 +80,7 @@ function App() {
         </Route>
         
         <Route path="*" element={<NotFound />} />
-        <Route path="/unauth-page" element={<UnauthPage />} 
+        <Route path="/unauth-page" element={<UnauthPage />} />
          </Routes>
     </div>
   )
