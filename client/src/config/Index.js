@@ -106,7 +106,7 @@ export const addProductFormElements = [
     {
       id: "product-benifits",
       label: "Product Benifits",
-      path: "/shop/product-benifits",
+      path: "/shop/product-benefits",
     },
     {
       id: "ingredients",
@@ -116,7 +116,7 @@ export const addProductFormElements = [
     {
       id: "contact-us",
       label: "Contact Us",
-      path: "/shop/conatct-us",
+      path: "/shop/contact-us",
     },
     
   ];
