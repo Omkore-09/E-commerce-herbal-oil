@@ -23,8 +23,6 @@ import AboutUs from "./components/shopping-view/AboutUs"
 import ProductBenefits from "./components/shopping-view/ProductBenefits"
 import IngredientsPage from "./components/shopping-view/IngredientsPage"
 import ContactUs from "./components/shopping-view/ContactUs"
-import PaypalReturnPage from "./pages/shopping-view/paypal-return"
-import PaymentSuccessPage from "./components/shopping-view/payment-success"
 
 
 
@@ -44,31 +42,19 @@ function App() {
 
 
   return (
-    <div className="flex flex-col overflow-hidden bg-white">
-    {/* common components 
-    <h1> Header components</h1> */}
-
-    <Routes>
-
-     <Route path="/" element={
-        <ShoppingHome />
-      } >
-          <Route path="home"  element={<ShoppingHome />} />
-        <Route path="listing" element={<ShoppingListing />} />
-        <Route path="checkout" element={<ShoppingCheckout />} />
-        <Route path="account" element={<ShoppingAccount />} />
-      </Route>
-
-      <Route path="/auth" element={
-        <CheckAuth isAuthenticated={isAuthenticated} user={user} >
-          <AuthLayout />
-        </CheckAuth>
-      } >
-          {/* /auth/login */}
-          <Route path="login" element={<AuthLogin/>}/>   
-          <Route path="register"  element={<AuthRegister/>} />
-
-      </Route>
+   <div className="flex flex-col overflow-hidden bg-white">
+      <Routes>
+        <Route path="/" element={<ShoppingLayout />}>
+          <Route path="home" element={<ShoppingHome />} />
+          <Route path="listing" element={<ShoppingListing />} />
+          <Route path="checkout" element={<ShoppingCheckout />} />
+          <Route path="account" element={<ShoppingAccount />} />
+        </Route>
+        
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route path="login" element={<AuthLogin />} />
+          <Route path="register" element={<AuthRegister />} />
+        </Route>
 
         <Route path="/shop/aboutus" element={<AboutUs />} />
         <Route path="/shop/product-benefits" element={<ProductBenefits />} />
@@ -86,23 +72,16 @@ function App() {
           <Route path="products" element={<AdminProducts />} />
         </Route>
 
-      {/* shopping routes  */}
-      <Route path="/shop" element={
-        <CheckAuth isAuthenticated={isAuthenticated} user={user} >
-          <ShoppingLayout />
-        </CheckAuth>
-      } >
-
-        <Route path="home"  element={<ShoppingHome />} />
-        <Route path="listing" element={<ShoppingListing />} />
-        <Route path="checkout" element={<ShoppingCheckout />} />
-        <Route path="account" element={<ShoppingAccount />} />
-
-      </Route>
-
-      <Route path="*" element={<NotFound />} />
-      <Route path="/unauth-page" element={<UnauthPage />} />
-    </Routes>
+        <Route path="/shop" element={<ShoppingLayout />}>
+          <Route path="home" element={<ShoppingHome />} />
+          <Route path="listing" element={<ShoppingListing />} />
+          <Route path="checkout" element={<ShoppingCheckout />} />
+          <Route path="account" element={<ShoppingAccount />} />
+        </Route>
+        
+        <Route path="*" element={<NotFound />} />
+        <Route path="/unauth-page" element={<UnauthPage />} />
+         </Routes>
     </div>
   )
 }
