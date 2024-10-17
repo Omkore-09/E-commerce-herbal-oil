@@ -1,25 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import RosemaryImage from '../../assets/befor.jpg'; // Replace with actual image paths
-import PeppermintImage from '../../assets/ba4.jpg';
-import CoconutImage from '../../assets/ba3.jpg';
+
+import Customer1 from '../../assets/ba1.jpg'
+import Customer2 from '../../assets/ba2.jpg'
+import Customer3 from '../../assets/ba3.jpg'
+import Customer4 from '../../assets/ba4.jpg'
+import Customer5 from '../../assets/ba5.jpg'
 
 const images = [
   {
-    src: RosemaryImage,
-    name: 'Customer A',
-    problem: 'Problem A'
+    src: Customer1,
+    name: 'Customer 1',
+    problem: ' '
   },
   {
-    src: CoconutImage,
-    name: 'Customer B',
-    problem: 'Problem B'
+    src: Customer2,
+    name: 'Customer 2',
+    problem: ' '
   },
   {
-    src: PeppermintImage,
-    name: 'Customer C',
-    problem: 'Problem C'
+    src: Customer3,
+    name: 'Customer 3',
+    problem: ' '
   },
-  // Add more as needed
+  {
+    src: Customer4,
+    name: 'Customer 4',
+    problem: ' '
+  },
+  {
+    src: Customer5,
+    name: 'Customer 5',
+    problem: ' '
+  },
+  
 ];
 
 const BeforeAfterSlider = () => {
