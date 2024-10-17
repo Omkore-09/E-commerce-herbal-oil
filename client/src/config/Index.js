@@ -90,12 +90,12 @@ export const addProductFormElements = [
     {
       id: "home",
       label: "Home",
-      path: "/home",
+      path: "/shop/home",
     },
     {
         id: "aboutus",
         label: "About Us",
-        path: "/aboutus",
+        path: "/shop/aboutus",
     },
     {
       id: "products",
@@ -106,7 +106,7 @@ export const addProductFormElements = [
     {
       id: "product-benifits",
       label: "Product Benifits",
-      path: "/product-benifits",
+      path: "/shop/product-benifits",
     },
     {
       id: "ingredients",
@@ -116,7 +116,7 @@ export const addProductFormElements = [
     {
       id: "contact-us",
       label: "Contact Us",
-      path: "/conatct-us",
+      path: "/shop/conatct-us",
     },
     
   ];
