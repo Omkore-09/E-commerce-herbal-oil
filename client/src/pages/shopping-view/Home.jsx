@@ -27,8 +27,6 @@ import { useNavigate } from "react-router-dom";
 import ReviewCarousel from "@/components/shopping-view/CustomerReviews";
 import BeforeAfterSlider from "@/components/shopping-view/BeforeAfter";
 import FullWidthImageSlider from "@/components/shopping-view/Slider";
-import ShoppingHeader from "@/components/shopping-view/Header";
-import welcomeImage from '../../assets/logo2bg.png';
 
 // import { useToast } from "@/components/ui/use-toast";
 

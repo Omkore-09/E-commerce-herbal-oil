@@ -14,25 +14,22 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.auth);
 
-  function handleAddToCart(getCurrentProductId) {
-    if (!user) {
-      navigate('/auth/login');
-    } else {
-      dispatch(
-        addToCart({
-          userId: user?.id,
-          productId: getCurrentProductId,
-          quantity: 1,
-        })
-      ).then((data) => {
-        if (data?.payload?.success) {
-          dispatch(fetchCartItems(user?.id));
-          toast({
-            title: "Product is added to cart",
-          });
-        }
-      });
-    }
+  function handleAddToCart(getCurrentProductId){
+    dispatch(
+      addToCart({
+        userId: user?.id,
+        productId: getCurrentProductId,
+        quantity: 1,
+      })
+    ).then((data) => {
+      if (data?.payload?.success) {
+        dispatch(fetchCartItems(user?.id));
+        toast({
+          title: "Product is added to cart",
+        });
+      }
+    });
+  }
   }
 
   function handleDialogClose() {

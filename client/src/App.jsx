@@ -51,13 +51,13 @@ function App() {
     <Routes>
 
      <Route path="/" element={
-        <ShoppingLayout />
+        <CheckAuth isAuthenticated={isAuthenticated} user={user} >
+          <AuthLayout />
+        </CheckAuth>
       } >
-        <Route path="home"  element={<ShoppingHome />} />
-        <Route path="listing" element={<ShoppingListing />} />
-        <Route path="ingredients" element={<IngredientsPage />} />
-        <Route path="conatct-us" element={<ContactUs />} />
-        
+          {/* /auth/login */}
+          <Route path="login" element={<AuthLogin/>}/>   
+          <Route path="register"  element={<AuthRegister/>} />
       </Route>
 
       <Route path="/auth" element={
@@ -71,38 +71,33 @@ function App() {
 
       </Route>
 
-      {/* about us */}
-      <Route path="/shop/aboutus" element={<AboutUs/>} />
-      <Route path="/shop/product-benifits" element={<ProductBenefits/>} />
-      <Route path="/shop/ingredients" element={<IngredientsPage/>} />
-      <Route path="/shop/conatct-us" element={<ContactUs/>} />
-
-      {/* admin routes  */}
-      <Route path="/admin" element={
-        <CheckAuth isAuthenticated={isAuthenticated} user={user} > 
-          <AdminLayout />
-        </CheckAuth>
-      }  >
+        <Route path="/shop/aboutus" element={<AboutUs />} />
+        <Route path="/shop/product-benefits" element={<ProductBenefits />} />
+        <Route path="/shop/ingredients" element={<IngredientsPage />} />
+        <Route path="/shop/contact-us" element={<ContactUs />} />
+        
+        <Route path="/admin" element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <AdminLayout />
+          </CheckAuth>
+        }>
           <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="features"  element={<AdminFeatures />} />
+          <Route path="features" element={<AdminFeatures />} />
           <Route path="orders" element={<AdminOrders />} />
           <Route path="products" element={<AdminProducts />} />
-      </Route>
+        </Route>
 
       {/* shopping routes  */}
       <Route path="/shop" element={
-        
+        <CheckAuth isAuthenticated={isAuthenticated} user={user} >
           <ShoppingLayout />
-        
+        </CheckAuth>
       } >
 
         <Route path="home"  element={<ShoppingHome />} />
         <Route path="listing" element={<ShoppingListing />} />
         <Route path="checkout" element={<ShoppingCheckout />} />
         <Route path="account" element={<ShoppingAccount />} />
-        <Route path="paypal-return" element={<PaypalReturnPage />} />
-        <Route path="payment-success" element={<PaymentSuccessPage />} />
-        
 
       </Route>
 
