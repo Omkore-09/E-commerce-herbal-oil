@@ -37,8 +37,8 @@ function App() {
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       <Routes>
-        <Route path="/" element={<ShoppingLayout />}>
-          <Route path="home" element={<ShoppingHome />} />
+        <Route path="/" element={<ShoppingHome />}>
+          
           <Route path="aboutus" element={<AboutUs />} />
         <Route path="product-benefits" element={<ProductBenefits />} />
         <Route path="ingredients" element={<IngredientsPage />} />
