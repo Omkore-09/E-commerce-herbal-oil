@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import BannerOne from "../../assets/s2.jpg";
-import BannerTwo from "../../assets/banner-3.webp";
-import BannerThree from "../../assets/dumi.jpg";
+import BannerOne from "../../assets/logo2bg.png";
+import BannerTwo from "../../assets/p1.jpg";
+import BannerThree from "../../assets/s2.jpg";
 
 const images = [
   BannerOne,
