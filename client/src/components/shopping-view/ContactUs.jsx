@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaEnvelopeOpenText } from 'react-icons/fa';
 import ShoppingHeader from './Header';
+import Footer from './Footer';
 
 const ContactUs = () => {
   const form = useRef();
@@ -57,6 +58,8 @@ const ContactUs = () => {
         </button>
       </form>
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
+
+      <Footer />
     </div>
   );
 };

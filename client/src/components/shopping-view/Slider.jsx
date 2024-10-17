@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import BannerOne from "../../assets/ll.jpg";
-import BannerTwo from "../../assets/p4.jpg";
-import BannerThree from "../../assets/s3.jpg";
+import BannerOne from "../../assets/s2.jpg";
+import BannerTwo from "../../assets/banner-3.webp";
+import BannerThree from "../../assets/dumi.jpg";
 
 const images = [
   BannerOne,
   BannerTwo,
-  BannerThree  // Add more as needed
+  BannerThree
+  // Add more as needed
 ];
 
 const FullWidthImageSlider = () => {
@@ -23,15 +24,15 @@ const FullWidthImageSlider = () => {
   const currentImage = images[currentIndex];
 
   return (
-    <div className="w-full h-auto">
-      <div className="relative w-full h-screen overflow-hidden">
-        <img src={currentImage} alt="Slide" className="w-full h-full object-contain" />
+    <div className="w-full h-auto ">
+      <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-screen overflow-hidden p-2 mt-10">
+        <img src={currentImage} alt="Slide" className="w-full h-full object-cover" />
       </div>
       <div className="flex justify-center mt-4 space-x-4">
         {images.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full ${index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'}`}
+            className={`w-3 h-3 rounded-full ${index === currentIndex ? 'bg-green-600' : 'bg-gray-300'}`}
             onClick={() => setCurrentIndex(index)}
           />
         ))}

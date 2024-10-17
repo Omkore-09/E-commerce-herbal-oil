@@ -1,5 +1,6 @@
 import React from 'react';
 import ShoppingHeader from './Header';
+import Footer from './Footer';
 
 const productBenefits = [
   {
@@ -30,7 +31,8 @@ const productBenefits = [
 
 const ProductBenefits = () => {
   return (
-    <section className="py-12 px-4 bg-gray-50 mt-6">
+    <section >
+      <div className="py-12 px-4 bg-gray-50 mt-6">
         <ShoppingHeader />
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Benefits of Using Herbal Oils</h2>
@@ -43,6 +45,8 @@ const ProductBenefits = () => {
           ))}
         </div>
       </div>
+      </div>
+      
     </section>
   );
 };

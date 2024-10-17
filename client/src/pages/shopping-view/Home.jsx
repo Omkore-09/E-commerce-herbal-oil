@@ -27,6 +27,8 @@ import { useNavigate } from "react-router-dom";
 import ReviewCarousel from "@/components/shopping-view/CustomerReviews";
 import BeforeAfterSlider from "@/components/shopping-view/BeforeAfter";
 import FullWidthImageSlider from "@/components/shopping-view/Slider";
+import ShoppingHeader from "@/components/shopping-view/Header";
+import welcomeImage from '../../assets/logo2bg.png';
 
 // import { useToast } from "@/components/ui/use-toast";
 
@@ -43,6 +45,7 @@ const ShoppingHome = () => {
   const { productList, productDetails } = useSelector(
     (state) => state.shoppingProducts
   );
+  
   const { user } = useSelector((state) => state.auth);
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
   const { toast } = useToast();
@@ -71,6 +74,11 @@ const ShoppingHome = () => {
   }, [productDetails]);
 
   function handleAddToCart(getCurrentProductId) {
+    if (!user) {
+      navigate('/auth/login');
+    } else {
+      
+    
     dispatch(
       addToCart({
         userId: user?.id,
@@ -86,10 +94,11 @@ const ShoppingHome = () => {
       }
     });
   }
+  }
 
   const navigate = useNavigate();
 
-  const redirectToAbout = () => {
+  const handleRedirect = () => {
     navigate('/shop/aboutus');
   };
 
@@ -97,6 +106,7 @@ const ShoppingHome = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <ShoppingHeader />
       {/* <div className="relative w-full mt-5 h-[600px] overflow-hidden">
         {slides.map((slide, index) => (
           <img
@@ -134,20 +144,22 @@ const ShoppingHome = () => {
 
       {/* about us  */}
       
-      <div className="flex flex-col items-center justify-center h-screen bg-white">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
-          Welcome to Our Hair Oil Shop
-        </h1>
-        <p className="text-base md:text-lg text-gray-600 mb-6 text-center">
-          Discover our range of 100% natural hair oils crafted to nourish and strengthen your hair.
-        </p>
-        <button 
-          onClick={redirectToAbout} 
-          className="px-4 py-2 md:px-6 md:py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
-        >
-          Learn More About Us
-        </button>
-      </div>
+      
+      <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+      <h1 className="text-3xl font-bold mb-4">Welcome to Adivasi Nilambari Herbal Hair Oil</h1>
+      <img src={welcomeImage} alt="Welcome" className="w-full h-auto mb-6 object-cover rounded-lg" />
+      <p className="text-lg mb-6">
+        Discover our range of 100% natural hair oils crafted to nourish and strengthen your hair.
+      </p>
+      
+      <button
+        onClick={handleRedirect}
+        className="bg-green-500 text-white py-2 px-4 rounded"
+      >
+        Learn More About Us
+      </button>
+    
+    </div>
       
 
       <section className="py-12 bg-gray-50 ">
@@ -160,8 +172,8 @@ const ShoppingHome = () => {
             {servicesProvided.map((item) => (
               <Card className="cursor-pointer hover:shadow-lg transition-shadow">
                 <CardContent className="flex flex-col items-center justify-center p-6">
-                  <item.icon className="w-12 h-12 mb-4 text-primary" />
-                  <span className="font-bold"> {item.lable} </span>
+                  <item.icon className="w-12 h-12 mb-4 text-green-500 " />
+                  <span className="font-bold text-center "> {item.lable} </span>
                 </CardContent>
               </Card>
             ))}

@@ -1,5 +1,5 @@
 import React from 'react'
-import accImg from '../../assets/about.jpg'
+import accImg from '../../assets/ll.jpg'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import Address from '@/components/shopping-view/address'
@@ -12,7 +12,7 @@ const ShoppingAccount = () => {
         <img
          
         src={accImg}
-        className='h-full w-full mt-3 object-cover object-center'
+        className='h-full w-full mt-3 object-fit object-center'
         />
       </div>
       <div className='container mx-auto grid grid-cols-1 gap-8 py-8'>

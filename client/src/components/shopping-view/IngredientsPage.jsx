@@ -7,6 +7,7 @@ import LavenderImage from '../../assets/lavender.jpeg';
 import TeaTreeImage from '../../assets/tea-tree.jpeg';
 import IngredientsBanner from '../../assets/slide3.jpg'; // Replace with actual image path
 import ShoppingHeader from './Header';
+import Footer from './Footer';
 
 const ingredients = [
   {
@@ -76,6 +77,7 @@ const IngredientsPage = () => {
           </div>
         </div>
       </section>
+      
     </div>
   );
 };

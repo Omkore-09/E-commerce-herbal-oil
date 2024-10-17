@@ -23,6 +23,8 @@ import AboutUs from "./components/shopping-view/AboutUs"
 import ProductBenefits from "./components/shopping-view/ProductBenefits"
 import IngredientsPage from "./components/shopping-view/IngredientsPage"
 import ContactUs from "./components/shopping-view/ContactUs"
+import PaypalReturnPage from "./pages/shopping-view/paypal-return"
+import PaymentSuccessPage from "./components/shopping-view/payment-success"
 
 
 
@@ -49,13 +51,13 @@ function App() {
     <Routes>
 
      <Route path="/" element={
-        <CheckAuth isAuthenticated={isAuthenticated} user={user} >
-          <AuthLayout />
-        </CheckAuth>
+        <ShoppingLayout />
       } >
-          {/* /auth/login */}
-          <Route path="login" element={<AuthLogin/>}/>   
-          <Route path="register"  element={<AuthRegister/>} />
+        <Route path="home"  element={<ShoppingHome />} />
+        <Route path="listing" element={<ShoppingListing />} />
+        <Route path="ingredients" element={<IngredientsPage />} />
+        <Route path="conatct-us" element={<ContactUs />} />
+        
       </Route>
 
       <Route path="/auth" element={
@@ -89,15 +91,18 @@ function App() {
 
       {/* shopping routes  */}
       <Route path="/shop" element={
-        <CheckAuth isAuthenticated={isAuthenticated} user={user} >
+        
           <ShoppingLayout />
-        </CheckAuth>
+        
       } >
 
         <Route path="home"  element={<ShoppingHome />} />
         <Route path="listing" element={<ShoppingListing />} />
         <Route path="checkout" element={<ShoppingCheckout />} />
         <Route path="account" element={<ShoppingAccount />} />
+        <Route path="paypal-return" element={<PaypalReturnPage />} />
+        <Route path="payment-success" element={<PaymentSuccessPage />} />
+        
 
       </Route>
 

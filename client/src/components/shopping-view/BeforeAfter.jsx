@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import RosemaryImage from '../../assets/rosemary.jpeg'; // Replace with actual image paths
-import PeppermintImage from '../../assets/peppermint.jpeg';
-import CoconutImage from '../../assets/coconut.jpeg';
+import RosemaryImage from '../../assets/befor.jpg'; // Replace with actual image paths
+import PeppermintImage from '../../assets/ba4.jpg';
+import CoconutImage from '../../assets/ba3.jpg';
 
 const images = [
   {
@@ -41,7 +41,7 @@ const BeforeAfterSlider = () => {
             {" "}
             Before and after using Adivasi Hair oil{" "}
           </h2>
-      <div className="relative w-full max-w-3xl h-64  overflow-hidden rounded-lg shadow-lg">
+      <div className="relative w-full max-w-3xl h-70  overflow-hidden rounded-lg shadow-lg">
         <img src={src} alt={`${name} - ${problem}`} className="w-full h-full object-cover px-2" />
       </div>
       <div className="mt-4 text-center">

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import ShoppingHeader from './Header'
+import Footer from './Footer'
 
 const ShoppingLayout = () => {
   return (
@@ -10,6 +11,10 @@ const ShoppingLayout = () => {
         <main className="flex flex-col w-full">
             <Outlet />
         </main>
+
+        <div className="mt-5">
+        <Footer />
+        </div>
     </div>
   )
 }
