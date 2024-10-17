@@ -1,50 +1,43 @@
-import { Route, Routes } from "react-router-dom"
-import AuthLayout from "./components/auth/Layout"
-import AuthLogin from "./pages/auth/Login"
-import AuthRegister from "./pages/auth/Register"
-import AdminLayout from "./components/admin-view/Layout"
-import AdminDashboard from "./pages/admin-view/Dashboard"
-import AdminFeatures from "./pages/admin-view/Features"
-import AdminOrders from "./pages/admin-view/Orders"
-import AdminProducts from "./pages/admin-view/Products"
-import ShoppingLayout from "./components/shopping-view/Layout"
-import NotFound from "./pages/not-found/Index"
-import ShoppingHome from "./pages/shopping-view/Home"
-import ShoppingListing from "./pages/shopping-view/Listing"
-import ShoppingCheckout from "./pages/shopping-view/Checkout"
-import ShoppingAccount from "./pages/shopping-view/Account"
-import CheckAuth from "./components/common/CheckAuth"
-import UnauthPage from "./pages/unauth-page/Index"
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
-import { checkAuth } from "./store/auth-slice"
-import { Skeleton } from "@/components/ui/skeleton"
-import AboutUs from "./components/shopping-view/AboutUs"
-import ProductBenefits from "./components/shopping-view/ProductBenefits"
-import IngredientsPage from "./components/shopping-view/IngredientsPage"
-import ContactUs from "./components/shopping-view/ContactUs"
-
-
+import React, { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import AuthLayout from "./components/auth/Layout";
+import AuthLogin from "./pages/auth/Login";
+import AuthRegister from "./pages/auth/Register";
+import AdminLayout from "./components/admin-view/Layout";
+import AdminDashboard from "./pages/admin-view/Dashboard";
+import AdminFeatures from "./pages/admin-view/Features";
+import AdminOrders from "./pages/admin-view/Orders";
+import AdminProducts from "./pages/admin-view/Products";
+import ShoppingLayout from "./components/shopping-view/Layout";
+import NotFound from "./pages/not-found/Index";
+import ShoppingHome from "./pages/shopping-view/Home";
+import ShoppingListing from "./pages/shopping-view/Listing";
+import ShoppingCheckout from "./pages/shopping-view/Checkout";
+import ShoppingAccount from "./pages/shopping-view/Account";
+import CheckAuth from "./components/common/CheckAuth";
+import UnauthPage from "./pages/unauth-page/Index";
+import { checkAuth } from "./store/auth-slice";
+import { Skeleton } from "@/components/ui/skeleton";
+import AboutUs from "./components/shopping-view/AboutUs";
+import ProductBenefits from "./components/shopping-view/ProductBenefits";
+import IngredientsPage from "./components/shopping-view/IngredientsPage";
+import ContactUs from "./components/shopping-view/ContactUs";
 
 function App() {
- 
- 
-
-  const {user ,isAuthenticated , isLoading} =useSelector(state => state.auth);
+  const { user, isAuthenticated, isLoading } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkAuth());
   }, [dispatch]);
 
-  if(isLoading) return <Skeleton className="w-full bg-black h-[600px] " />
-
-
+  if (isLoading) return <Skeleton className="w-full bg-black h-[600px]" />;
 
   return (
-   <div className="flex flex-col overflow-hidden bg-white">
+    <div className="flex flex-col overflow-hidden bg-white">
       <Routes>
-        <Route path="/" element={<ShoppingHome />}>
+        <Route path="/" element={<ShoppingLayout />}>
           <Route path="home" element={<ShoppingHome />} />
           <Route path="listing" element={<ShoppingListing />} />
           <Route path="checkout" element={<ShoppingCheckout />} />
@@ -81,9 +74,9 @@ function App() {
         
         <Route path="*" element={<NotFound />} />
         <Route path="/unauth-page" element={<UnauthPage />} />
-         </Routes>
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
