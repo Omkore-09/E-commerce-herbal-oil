@@ -9,7 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const initialState = { email: '', password: '' };
 
 const AuthLogin = () => {
-  const [formData, setFormData] = useState(initialState);
+  const [formData, setFormdata] = useState(initialState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -43,7 +43,7 @@ const AuthLogin = () => {
         formControls={loginFormControls}
         buttonText={'Login'}
         formData={formData}
-        setFormData={setFormData}
+        setFormData={setFormdata}
         onSubmit={onSubmit}
       />
     </div>
