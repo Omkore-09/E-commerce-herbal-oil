@@ -42,67 +42,48 @@ function App() {
 
 
   return (
-    <div className="flex flex-col overflow-hidden bg-white">
-    {/* common components 
-    <h1> Header components</h1> */}
+   <div className="flex flex-col overflow-hidden bg-white">
+      <Routes>
+        <Route path="/" element={<ShoppingLayout />}>
+          <Route path="home" element={<ShoppingHome />} />
+          <Route path="listing" element={<ShoppingListing />} />
+          <Route path="aboutus" element={<AboutUs />} />
+        <Route path="product-benefits" element={<ProductBenefits />} />
+        <Route path="ingredients" element={<IngredientsPage />} />
+        <Route path="contact-us" element={<ContactUs />} />
+        </Route>
+        
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route path="login" element={<AuthLogin />} />
+          <Route path="register" element={<AuthRegister />} />
+        </Route>
 
-    <Routes>
-
-     <Route path="/" element={
-        <ShoppingLayout />
-      } >
-        <Route path="home"  element={<ShoppingHome />} />
-        <Route path="listing" element={<ShoppingListing />} />
-        <Route path="checkout" element={<ShoppingCheckout />} />
-        <Route path="account" element={<ShoppingAccount />} />
-      </Route>
-
-      <Route path="/auth" element={
-        <CheckAuth isAuthenticated={isAuthenticated} user={user} >
-          <AuthLayout />
-        </CheckAuth>
-      } >
-          {/* /auth/login */}
-          <Route path="login" element={<AuthLogin/>}/>   
-          <Route path="register"  element={<AuthRegister/>} />
-
-      </Route>
-
-      {/* about us */}
-      <Route path="/shop/aboutus" element={<AboutUs/>} />
-      <Route path="/shop/product-benifits" element={<ProductBenefits/>} />
-      <Route path="/shop/ingredients" element={<IngredientsPage/>} />
-      <Route path="/shop/conatct-us" element={<ContactUs/>} />
-
-      {/* admin routes  */}
-      <Route path="/admin" element={
-        <CheckAuth isAuthenticated={isAuthenticated} user={user} > 
-          <AdminLayout />
-        </CheckAuth>
-      }  >
+        <Route path="/shop/aboutus" element={<AboutUs />} />
+        <Route path="/shop/product-benefits" element={<ProductBenefits />} />
+        <Route path="/shop/ingredients" element={<IngredientsPage />} />
+        <Route path="/shop/contact-us" element={<ContactUs />} />
+        
+        <Route path="/admin" element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <AdminLayout />
+          </CheckAuth>
+        }>
           <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="features"  element={<AdminFeatures />} />
+          <Route path="features" element={<AdminFeatures />} />
           <Route path="orders" element={<AdminOrders />} />
           <Route path="products" element={<AdminProducts />} />
-      </Route>
+        </Route>
 
-      {/* shopping routes  */}
-      <Route path="/shop" element={
+        <Route path="/shop" element={<ShoppingLayout />}>
+          <Route path="home" element={<ShoppingHome />} />
+          <Route path="listing" element={<ShoppingListing />} />
+          <Route path="checkout" element={<ShoppingCheckout />} />
+          <Route path="account" element={<ShoppingAccount />} />
+        </Route>
         
-          <ShoppingLayout />
-        
-      } >
-
-        <Route path="home"  element={<ShoppingHome />} />
-        <Route path="listing" element={<ShoppingListing />} />
-        <Route path="checkout" element={<ShoppingCheckout />} />
-        <Route path="account" element={<ShoppingAccount />} />
-
-      </Route>
-
-      <Route path="*" element={<NotFound />} />
-      <Route path="/unauth-page" element={<UnauthPage />} />
-    </Routes>
+        <Route path="*" element={<NotFound />} />
+        <Route path="/unauth-page" element={<UnauthPage />} />
+         </Routes>
     </div>
   )
 }
