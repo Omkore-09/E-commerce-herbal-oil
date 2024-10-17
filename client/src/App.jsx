@@ -44,7 +44,7 @@ function App() {
   return (
    <div className="flex flex-col overflow-hidden bg-white">
       <Routes>
-        <Route path="/" element={<ShoppingLayout />}>
+        <Route path="/" element={<ShoppingHome />}>
           <Route path="home" element={<ShoppingHome />} />
           <Route path="listing" element={<ShoppingListing />} />
           <Route path="aboutus" element={<AboutUs />} />
