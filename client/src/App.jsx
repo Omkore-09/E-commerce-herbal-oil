@@ -51,13 +51,12 @@ function App() {
     <Routes>
 
      <Route path="/" element={
-        <CheckAuth isAuthenticated={isAuthenticated} user={user} >
-          <AuthLayout />
-        </CheckAuth>
+        <ShoppingHome />
       } >
-          {/* /auth/login */}
-          <Route path="login" element={<AuthLogin/>}/>   
-          <Route path="register"  element={<AuthRegister/>} />
+          <Route path="home"  element={<ShoppingHome />} />
+        <Route path="listing" element={<ShoppingListing />} />
+        <Route path="checkout" element={<ShoppingCheckout />} />
+        <Route path="account" element={<ShoppingAccount />} />
       </Route>
 
       <Route path="/auth" element={
