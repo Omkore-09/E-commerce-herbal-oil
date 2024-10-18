@@ -43,19 +43,34 @@ function App() {
 
   return (
    <div className="flex flex-col overflow-hidden bg-white">
-      <Routes>
-        <Route path="/" element={<ShoppingHome />}>
+      <Route path="/" element={<Layout />}>
+          <Route index element={<ShoppingHome />} />
           <Route path="home" element={<ShoppingHome />} />
           <Route path="listing" element={<ShoppingListing />} />
           <Route path="aboutus" element={<AboutUs />} />
-        <Route path="product-benefits" element={<ProductBenefits />} />
-        <Route path="ingredients" element={<IngredientsPage />} />
-        <Route path="contact-us" element={<ContactUs />} />
-        </Route>
+          <Route path="product-benefits" element={<ProductBenefits />} />
+          <Route path="ingredients" element={<IngredientsPage />} />
+          <Route path="contact-us" element={<ContactUs />} />
+        
+       </Route>
         
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="login" element={<AuthLogin />} />
           <Route path="register" element={<AuthRegister />} />
+        </Route>
+
+     <Route
+          path="/shop"
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <ShoppingLayout />
+            </CheckAuth>
+          }
+        >
+          <Route path="home" element={<ShoppingHome />} />
+          <Route path="listing" element={<ShoppingListing />} />
+          <Route path="checkout" element={<ShoppingCheckout />} />
+          <Route path="account" element={<ShoppingAccount />} />
         </Route>
 
         <Route path="/shop/aboutus" element={<AboutUs />} />
