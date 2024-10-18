@@ -14,13 +14,14 @@ const AuthLogin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { isAuthenticated, isLoading } = useSelector((state) => state.auth);
-
+  const {user} = useSelector(state => state.auth);
   const onSubmit = (event) => {
     event.preventDefault();
     dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
         toast({ title: 'Login Successful' });
-        navigate('/shop/home'); // Redirect to home page after successful login
+        
+        navigate('/shop/home');
       } else {
         toast({
           title: 'Login Failed',
