@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const cron = require('node-cron');
+const axios = require('axios');
 const authRouter = require('./routes/auth/auth-routes')
 
 const adminProductsRouter = require('./routes/admin/products-routes')
@@ -49,5 +51,14 @@ app.use('/api/shop/cart' , shopCartRouter)
 app.use('/api/shop/address' , shopAddressRouter);
 app.use('/api/shop/order', shopOrderRouter)
 app.use('/api/admin/orders', adminOrderRouter)
+
+cron.schedule('*/15 * * * *', async () => {
+    try {
+      await axios.get('https://e-commerce-herbal-oil-backend.onrender.com'); // Change this to your actual backend URL
+      console.log('Server pinged successfully');
+    } catch (error) {
+      console.error('Error pinging server:', error);
+    }
+ });
 
 app.listen(PORT , ()=> console.log(`server is running on PORT ${PORT}`));
