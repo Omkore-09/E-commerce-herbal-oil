@@ -51,11 +51,11 @@ app.use('/api/shop/order', shopOrderRouter);
 app.use('/api/admin/orders', adminOrderRouter);
 
 // Static files (serving frontend)
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
 // Catch-all route to handle frontend routing (React Router)
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
 });
 
 // Start the server
