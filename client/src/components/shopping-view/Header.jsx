@@ -92,7 +92,7 @@ const ShoppingHeader = () => {
           <SheetContent side="left" className="w-full max-w-xs">
             <nav className="flex flex-col mb-3 lg:mb-0 lg:items-center gap-6 lg:flex-row">
               <Link className="text-sm font-medium" to="/home">Home</Link>
-              <Link className="text-sm font-medium" to="/listing">Listing</Link>
+              <Link className="text-sm font-medium" to="/listing">Products</Link>
               <Link className="text-sm font-medium" to="/aboutus">About Us</Link>
               <Link className="text-sm font-medium" to="/product-benefits">Product Benefits</Link>
               <Link className="text-sm font-medium" to="/ingredients">Ingredients</Link>
@@ -104,7 +104,7 @@ const ShoppingHeader = () => {
         <div className="hidden lg:block text-white text-2xl">
           <nav className="flex flex-col mb-3 lg:mb-0 lg:items-center gap-6 lg:flex-row">
             <Link className="text-sm font-medium" to="/home">Home</Link>
-            <Link className="text-sm font-medium" to="/listing">Listing</Link>
+            <Link className="text-sm font-medium" to="/listing">Products</Link>
             <Link className="text-sm font-medium" to="/aboutus">About Us</Link>
             <Link className="text-sm font-medium" to="/product-benefits">Product Benefits</Link>
             <Link className="text-sm font-medium" to="/ingredients">Ingredients</Link>
