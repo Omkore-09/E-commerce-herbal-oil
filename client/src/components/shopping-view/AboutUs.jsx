@@ -179,7 +179,7 @@ const AboutUs = () => {
           </p>
         </div>
       </section>
-      <Footer />
+     
     </div>
   );
 };
