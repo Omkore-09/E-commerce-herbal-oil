@@ -1,7 +1,8 @@
 import { HousePlug, LogOut, Menu, ShoppingCart, UserCog, Vegan } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "../../components/ui/sheet";
+
 import { Button } from "../../components/ui/button";
 
 import { useDispatch, useSelector } from "react-redux";
