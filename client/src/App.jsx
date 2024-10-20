@@ -23,7 +23,7 @@ import AboutUs from "./components/shopping-view/AboutUs"
 import ProductBenefits from "./components/shopping-view/ProductBenefits"
 import IngredientsPage from "./components/shopping-view/IngredientsPage"
 import ContactUs from "./components/shopping-view/ContactUs"
-
+import WhatsAppIcon from "./components/shopping-view/WhatsAppIcon"
 
 
 function App() {
@@ -103,6 +103,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/unauth-page" element={<UnauthPage />} />
          </Routes>
+    <WhatsAppIcon />
     </div>
   )
 }
