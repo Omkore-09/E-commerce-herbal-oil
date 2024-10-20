@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skeleton } from "@components/ui/skeleton"; // Adjust the import path if necessary
+import { Skeleton } from '../ui/skeleton'; // Adjust the import path if necessary
 import logo from '../../assets/logobg.png'; // Adjust the path as needed
 
 const LoadingSkeleton = () => {
