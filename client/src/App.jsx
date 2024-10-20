@@ -24,7 +24,7 @@ import ProductBenefits from "./components/shopping-view/ProductBenefits"
 import IngredientsPage from "./components/shopping-view/IngredientsPage"
 import ContactUs from "./components/shopping-view/ContactUs"
 import WhatsAppIcon from "./components/shopping-view/WhatsAppIcon"
-
+import LoadingSkeleton from "./components/shopping-view/LoadingSkeleton"
 
 function App() {
  
@@ -37,7 +37,7 @@ function App() {
     dispatch(checkAuth());
   }, [dispatch]);
 
-  if(isLoading) return <Skeleton className="w-full bg-black h-[600px] " />
+    if(isLoading) return <LoadingSkeleton /> ;
 
 
 
