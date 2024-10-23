@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 import Customer1 from '../../assets/ba1.jpg'
-import Customer2 from '../../assets/ba2.jpg'
+import Customer2 from '../../assets/ba6.jpg'
 import Customer3 from '../../assets/ba3.jpg'
 import Customer4 from '../../assets/ba4.jpg'
 import Customer5 from '../../assets/ba5.jpg'
+import Customer6 from '../../assets/ba7.jpg'
+import Customer7 from '../../assets/ba8.jpg'
+import Customer8 from '../../assets/ba9.jpg'
 
 const images = [
   {
@@ -30,6 +33,21 @@ const images = [
   {
     src: Customer5,
     name: 'Customer 5',
+    problem: ' '
+  },
+  {
+    src: Customer6,
+    name: 'Customer 6',
+    problem: ' '
+  },
+  {
+    src: Customer7,
+    name: 'Customer 7',
+    problem: ' '
+  },
+  {
+    src: Customer8,
+    name: 'Customer 8',
     problem: ' '
   },
   
