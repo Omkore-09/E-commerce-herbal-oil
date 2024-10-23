@@ -136,8 +136,7 @@ const AboutUs = () => {
             <div className="flex flex-col items-center text-center">
               <MapPin className="text-green-500" />
               <p className="text-gray-600">
-                Branch 1: 18/277, Shop No. 3, in front of Guru Talkies, Taluka
-                Hatkanangale, District Kolhapur 416115
+                Branch 1: 18/277, Shop No. 3, in front of Guru Talkies,Ichalkaranji , Taluka Hatkanangale, District Kolhapur 416115
               </p>
               <button
                 onClick={() =>
@@ -154,7 +153,7 @@ const AboutUs = () => {
             <MapPin className="text-green-500" />
               <p className="text-gray-600">
                 Branch 2: Collector Office Road, 446/1, Kailas Towers, below B
-                News Office, Shop No. G.8, G.9, Kolhapur.
+                News Office, Shop No. G.8, G.9, Kolhapur , Taluka- Karvir , District - Kolhapur.
               </p>
               <button
                 onClick={() => openGoogleMaps(" B News Office, Kolhapur")}
