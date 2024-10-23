@@ -11,7 +11,7 @@ const Footer = () => (
           <ul className="space-y-3 text-sm">
             <li className="flex items-start">
               <MapPin className="h-4 w-4 mr-2 text-green-400" />
-              18/277, Shop No. 3, in front of Guru Talkies, Taluka Hatkanangale, District Kolhapur 416115
+              18/277, Shop No. 3, in front of Guru Talkies,Ichalkaranji , Taluka Hatkanangale, District Kolhapur 416115
             </li>
             <li className="flex items-start">
               <MapPin className="h-4 w-4 mr-2 text-green-400" />
