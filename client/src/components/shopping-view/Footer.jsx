@@ -15,7 +15,7 @@ const Footer = () => (
             </li>
             <li className="flex items-start">
               <MapPin className="h-4 w-4 mr-2 text-green-400" />
-              Collector Office Road, 446/1, Kailas Towers, below B News Office, Shop No. G.8, G.9, Kolhapur.
+              Collector Office Road, 446/1, Kailas Towers, below B News Office, Shop No. G.8, G.9,Kolhapur , Taluka-Karvir , District Kolhapur.
             </li>
             <li className="flex items-center">
               <Phone className="h-4 w-4 mr-2 text-green-400" />
