@@ -58,8 +58,9 @@ const Footer = () => (
       </div>
       
       <div className="mt-8 text-center">
-        <p className="text-sm">© 2024 Adivasi Nilambari Kasturi Herbal Hair Oil. All Rights Reserved.</p>
-        <p className="text-sm">Developed by : Omkore_09☘️</p>
+        <p className="text-sm">© 2024 Adivasi Nilambari Kasturi Herbal Hair Oil.</p>
+        <p className="text-sm"> All Rights Reserved.</p>
+        <p className="text-sm">Developed by : Omkore_09 & Shiv_B☘️</p>
       </div>
     </div>
   </footer>
