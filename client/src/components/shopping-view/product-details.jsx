@@ -58,7 +58,7 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
             className="aspect-square w-full object-cover"
           />
         </div>
-        <div className="overflow-auto max-h-[70vh] sm:max-h-[80vh] p-4">
+        <div className="overflow-auto max-h-[50vh] sm:max-h-[60vh] p-4"> {/* Adjusted container height */}
           <h1 className="text-2xl sm:text-3xl font-extrabold">
             {productDetails?.title}
           </h1>
@@ -88,7 +88,7 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
           </div>
           <Button className="w-full mb-3 sm:mb-5" onClick={() => handleAddToCart(productDetails?._id)}>Add To Cart</Button>
           <Separator className="mb-3 sm:mb-5" />
-          <div className="max-h-[200px] sm:max-h-[300px] overflow-auto">
+          <div className="max-h-[150px] sm:max-h-[200px] overflow-auto"> {/* Adjusted reviews container height */}
             <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Reviews</h2>
             <div className="grid gap-4 sm:gap-6">
               {['Om kore', 'Om kore', 'Om kore'].map((reviewer, idx) => (
