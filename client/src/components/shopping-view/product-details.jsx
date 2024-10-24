@@ -1,5 +1,5 @@
 import React from "react";
-import { Dialog, DialogContent } from "../ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "../ui/dialog"; // Adjust the import according to your project structure
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Avatar, AvatarFallback } from "../ui/avatar";
@@ -42,6 +42,12 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
 
   return (
     <Dialog open={open} onOpenChange={handleDialogClose}>
+      <DialogHeader>
+        <DialogTitle>Product Details</DialogTitle>
+        <DialogClose asChild>
+          <button aria-label="Close" className="absolute right-2 top-2">✕</button>
+        </DialogClose>
+      </DialogHeader>
       <DialogContent className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 sm:p-6 p-4 max-w-full sm:max-w-[80vw] lg:max-w-[70vw]">
         <div className="relative overflow-hidden rounded-lg">
           <img
@@ -52,7 +58,7 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
             className="aspect-square w-full object-cover"
           />
         </div>
-        <div className="overflow-auto max-h-[70vh] sm:max-h-[80vh]">
+        <div className="overflow-auto max-h-[70vh] sm:max-h-[80vh] p-4">
           <h1 className="text-2xl sm:text-3xl font-extrabold">
             {productDetails?.title}
           </h1>
