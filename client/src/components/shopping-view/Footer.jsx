@@ -47,10 +47,10 @@ const Footer = () => (
         <div className="footer-col">
           <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
           <div className="flex space-x-4">
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-700">
+            <a href="https://youtube.com/@adivasinilambariherbalhairoil?si=bW1rNmlGQBCADITQ" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-700">
               <Youtube className="h-6 w-6" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-700">
+            <a href="https://www.instagram.com/official_adivasi_hairoil_mh/profilecard/?igsh=eXJmdG56eGpnMWts" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-700">
               <Instagram className="h-6 w-6" />
             </a>
           </div>
