@@ -52,7 +52,7 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
             className="aspect-square w-full object-cover"
           />
         </div>
-        <div>
+        <div className="overflow-auto max-h-[70vh] sm:max-h-[80vh]">
           <h1 className="text-2xl sm:text-3xl font-extrabold">
             {productDetails?.title}
           </h1>
