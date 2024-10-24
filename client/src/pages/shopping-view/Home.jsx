@@ -29,6 +29,7 @@ import BeforeAfterSlider from "@/components/shopping-view/BeforeAfter";
 import FullWidthImageSlider from "@/components/shopping-view/Slider";
 import ShoppingHeader from "@/components/shopping-view/Header";
 import welcomeImage from '../../assets/logo2bg.png';
+import welcomeImage2 from '../../assets/logo2bg.png';
 
 // import { useToast } from "@/components/ui/use-toast";
 
@@ -140,7 +141,10 @@ const ShoppingHome = () => {
           <ChevronRightIcon className="w-4 h-4" />
         </Button>
       </div> */}
-      <FullWidthImageSlider />
+{/*       <FullWidthImageSlider /> */}
+        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] overflow-hidden">
+        <img src={welcomeImage2} alt="Welcome" className="w-full h-full object-cover" />
+      </div>
 
       {/* about us  */}
       
