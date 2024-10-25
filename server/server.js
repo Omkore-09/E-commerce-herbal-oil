@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
-const authRouter = require('./routes/auth/auth-routes');
+const axios = require('axios'); // Add axios for self-pinging
 
+const authRouter = require('./routes/auth/auth-routes');
 const adminProductsRouter = require('./routes/admin/products-routes');
 const shopProductsRouter = require('./routes/shop/products-routes');
 const shopCartRouter = require('./routes/shop/cart-routes');
@@ -57,6 +58,22 @@ app.use(express.static(path.join(__dirname, 'client/dist')));
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
 });
+
+// Self-pinging mechanism to keep the server alive on Render
+const url = `https://e-commerce-herbal-oil-backend.onrender.com`; // Replace with your Render URL
+const interval = 60000; // Interval in milliseconds (30 seconds)
+
+function reloadWebsite() {
+    axios.get(url)
+        .then(response => {
+            console.log(`Reloaded at ${new Date().toISOString()}: Status Code ${response.status}`);
+        })
+        .catch(error => {
+            console.error(`Error reloading at ${new Date().toISOString()}:`, error.message);
+        });
+}
+
+setInterval(reloadWebsite, interval);
 
 // Start the server
 app.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
