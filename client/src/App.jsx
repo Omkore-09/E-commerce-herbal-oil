@@ -60,6 +60,17 @@ function App() {
           <Route path="register" element={<AuthRegister />} />
         </Route>
 
+      <Route path="/admin" element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <AdminLayout />
+          </CheckAuth>
+        }>
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="features" element={<AdminFeatures />} />
+          <Route path="orders" element={<AdminOrders />} />
+          <Route path="products" element={<AdminProducts />} />
+        </Route>
+
      <Route
           path="/shop"
           element={
@@ -78,16 +89,7 @@ function App() {
         <Route path="/shop/ingredients" element={<IngredientsPage />} />
         <Route path="/shop/contact-us" element={<ContactUs />} />
         
-        <Route path="/admin" element={
-          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-            <AdminLayout />
-          </CheckAuth>
-        }>
-          <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="features" element={<AdminFeatures />} />
-          <Route path="orders" element={<AdminOrders />} />
-          <Route path="products" element={<AdminProducts />} />
-        </Route>
+       
 
         <Route path="/shop" element={<ShoppingLayout />}>
           <Route path="home" element={<ShoppingHome />} />
