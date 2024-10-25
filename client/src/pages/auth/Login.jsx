@@ -1,10 +1,10 @@
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import CommonForm from '@/components/common/Form';
 import { loginFormControls } from '@/config/Index';
 import { useToast } from '@/hooks/use-toast';
 import { loginUser } from '@/store/auth-slice';
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
 
 const initialState = { email: '', password: '' };
 
@@ -13,15 +13,20 @@ const AuthLogin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { isAuthenticated, isLoading } = useSelector((state) => state.auth);
-  const {user} = useSelector(state => state.auth);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
+
   const onSubmit = (event) => {
     event.preventDefault();
     dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
         toast({ title: 'Login Successful' });
         
-        navigate('/shop/home');
+        // Check the user's role and navigate accordingly
+        if (user?.role === 'admin') {
+          navigate('/admin/dashboard');
+        } else {
+          navigate('/shop/home');
+        }
       } else {
         toast({
           title: 'Login Failed',
