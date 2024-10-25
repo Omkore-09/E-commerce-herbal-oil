@@ -43,7 +43,7 @@ const ProductDetailsDialog = ({ open, setOpen, productDetails }) => {
   return (
     <Dialog open={open} onOpenChange={handleDialogClose}>
       <DialogHeader>
-        <DialogTitle>Product Details</DialogTitle>
+{/*         <DialogTitle>Product Details</DialogTitle> */}
         <DialogClose asChild>
           <button aria-label="Close" className="absolute right-2 top-2">✕</button>
         </DialogClose>
