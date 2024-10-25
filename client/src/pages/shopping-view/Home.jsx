@@ -209,7 +209,7 @@ const ShoppingHome = () => {
 
                 <h2 className="text-4xl font-bold text-center  mt-6 mb-8">
             {" "}
-            Before and after using Adivasi Hair oil{" "}
+            Customer Reviews{" "}
           </h2>
                 <ReviewCarousel />
                 
