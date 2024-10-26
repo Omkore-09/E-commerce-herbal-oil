@@ -40,6 +40,7 @@ const Footer = () => (
             <li><a href="/listing" className="hover:text-green-400">Products</a></li>
             <li><a href="/ingredients" className="hover:text-green-400">Product Ingrediants</a></li>
             <li><a href="/conatct-us" className="hover:text-green-400">Contact</a></li>
+            <li><a href="/results" className="hover:text-green-400">Costomer Results</a></li>
           </ul>
         </div>
 
@@ -47,7 +48,7 @@ const Footer = () => (
         <div className="footer-col">
           <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
           <div className="flex space-x-4">
-            <a href="https://youtube.com/@adivasinilambariherbalhairoil?si=bW1rNmlGQBCADITQ" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-700">
+            <a href="https://youtube.com/@adivasinilambarikasturiherbalh?si=txTHGPADxuTSZyyv" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-700">
               <Youtube className="h-6 w-6" />
             </a>
             <a href="https://www.instagram.com/official_adivasi_hairoil_mh/profilecard/?igsh=eXJmdG56eGpnMWts" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-700">
