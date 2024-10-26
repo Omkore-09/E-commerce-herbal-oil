@@ -103,6 +103,11 @@ const ShoppingHome = () => {
     navigate('/shop/aboutus');
   };
 
+
+  const handleResult = () => {
+    navigate('/results');
+  };
+  
   console.log(productList, "productlist");
 
   return (
@@ -206,6 +211,39 @@ const ShoppingHome = () => {
         </div>
       </section>
                 <BeforeAfterSlider />
+
+
+        <div className="container mx-auto px-4 py-8">
+      <h2 className="text-3xl font-bold mb-4 text-center mt-[1rem]">Customer Results</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src={Customer1} alt="Customer 1" className="w-full h-48 object-cover" />
+          <div className="p-4 text-center">
+            <h3 className="text-lg font-medium">Customer 1</h3>
+          </div>
+        </div>
+        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src={Customer2} alt="Customer 2" className="w-full h-48 object-cover" />
+          <div className="p-4 text-center">
+            <h3 className="text-lg font-medium">Customer 2</h3>
+          </div>
+        </div>
+        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src={Customer3} alt="Customer 3" className="w-full h-48 object-cover" />
+          <div className="p-4 text-center">
+            <h3 className="text-lg font-medium">Customer 3</h3>
+          </div>
+        </div>
+      </div>
+      <div className="text-center mt-8">
+        <button
+          onClick={handleResult}
+          className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition-colors"
+        >
+          View More Results
+        </button>
+      </div>
+    </div>
 
                 <h2 className="text-4xl font-bold text-center  mt-6 mb-8">
             {" "}
