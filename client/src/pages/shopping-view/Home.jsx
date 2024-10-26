@@ -30,7 +30,9 @@ import FullWidthImageSlider from "@/components/shopping-view/Slider";
 import ShoppingHeader from "@/components/shopping-view/Header";
 import welcomeImage from '../../assets/logo2bg.png';
 import welcomeImage2 from '../../assets/p1.jpg';
-
+import Customer1 from '../../assets/ba1.jpg'
+import Customer2 from '../../assets/ba6.jpg'
+import Customer3 from '../../assets/ba3.jpg'
 // import { useToast } from "@/components/ui/use-toast";
 
 const servicesProvided = [
