@@ -25,6 +25,7 @@ import IngredientsPage from "./components/shopping-view/IngredientsPage"
 import ContactUs from "./components/shopping-view/ContactUs"
 import WhatsAppIcon from "./components/shopping-view/WhatsAppIcon"
 import LoadingSkeleton from "./components/shopping-view/LoadingSkeleton"
+import MoreResults from "./pages/shopping-view/MoreResults"
 
 function App() {
  
@@ -52,7 +53,7 @@ function App() {
           <Route path="product-benefits" element={<ProductBenefits />} />
           <Route path="ingredients" element={<IngredientsPage />} />
           <Route path="contact-us" element={<ContactUs />} />
-        
+          <Route path="results" element={<MoreResults />} />
        </Route>
         
         <Route path="/auth" element={<AuthLayout />}>
@@ -100,6 +101,7 @@ function App() {
         <Route path="product-benefits" element={<ProductBenefits />} />
         <Route path="ingredients" element={<IngredientsPage />} />
         <Route path="contact-us" element={<ContactUs />} />
+         <Route path="results" element={<MoreResults />} />
         </Route>
         
         <Route path="*" element={<NotFound />} />
