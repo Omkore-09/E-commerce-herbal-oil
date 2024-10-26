@@ -96,6 +96,7 @@ const ShoppingHeader = () => {
               <Link className="text-sm font-medium" to="/aboutus">About Us</Link>
               <Link className="text-sm font-medium" to="/product-benefits">Product Benefits</Link>
               <Link className="text-sm font-medium" to="/ingredients">Ingredients</Link>
+              <Link className="text-sm font-medium" to="/results">Customer Results</Link>
               <Link className="text-sm font-medium" to="/contact-us">Contact Us</Link>
             </nav>
             <HeaderRightContent />
@@ -108,6 +109,7 @@ const ShoppingHeader = () => {
             <Link className="text-sm font-medium" to="/aboutus">About Us</Link>
             <Link className="text-sm font-medium" to="/product-benefits">Product Benefits</Link>
             <Link className="text-sm font-medium" to="/ingredients">Ingredients</Link>
+            <Link className="text-sm font-medium" to="/results">Customer Results</Link>
             <Link className="text-sm font-medium" to="/contact-us">Contact Us</Link>
           </nav>
         </div>
