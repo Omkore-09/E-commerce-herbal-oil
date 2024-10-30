@@ -11,7 +11,7 @@ const ShoppingProductTile = ({ product, handleGetProductDetails, handleAddtoCart
           <img
             src={product?.image}
             alt={product.title}
-            className="w-full object-contain rounded-t-lg"
+            className="w-full h-[490px] object-cover rounded-t-lg"
           />
           {product?.salePrice > 0 ? (
             <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
