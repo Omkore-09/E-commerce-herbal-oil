@@ -26,6 +26,7 @@ import ContactUs from "./components/shopping-view/ContactUs"
 import WhatsAppIcon from "./components/shopping-view/WhatsAppIcon"
 import LoadingSkeleton from "./components/shopping-view/LoadingSkeleton"
 import MoreResults from "./pages/shopping-view/MoreResults"
+import GPayComponent from "./pages/shopping-view/GpayComponent"
 
 function App() {
  
@@ -71,6 +72,7 @@ function App() {
           <Route path="orders" element={<AdminOrders />} />
           <Route path="products" element={<AdminProducts />} />
         </Route>
+     <Route path="/gpay" element={<GPayComponent />} />
 
      <Route
           path="/shop"
