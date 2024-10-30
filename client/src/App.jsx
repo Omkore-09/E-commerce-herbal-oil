@@ -26,7 +26,7 @@ import ContactUs from "./components/shopping-view/ContactUs"
 import WhatsAppIcon from "./components/shopping-view/WhatsAppIcon"
 import LoadingSkeleton from "./components/shopping-view/LoadingSkeleton"
 import MoreResults from "./pages/shopping-view/MoreResults"
-import GPayComponent from "./pages/shopping-view/GpayComponent"
+import GPayComponent from "./pages/shopping-view/GPayComponent"
 
 function App() {
  
