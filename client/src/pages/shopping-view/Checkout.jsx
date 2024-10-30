@@ -1,20 +1,19 @@
+// ShoppingCheckout.jsx
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Address from "@/components/shopping-view/address";
-import img from "../../assets/about.jpg";
+import img from "../../assets/logo2bg.png";
 import UserCartItemsContent from "@/components/shopping-view/cart-items-content";
 import { Button } from "@/components/ui/button";
 import { createNewOrder } from "@/store/shop/order-slice";
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle } from "lucide-react"; // Use Lucide React icon
+import { CheckCircle } from "lucide-react"; 
 
 function ShoppingCheckout() {
   const { cartItems } = useSelector((state) => state.shopCart);
   const { user } = useSelector((state) => state.auth);
-  const { approvalURL } = useSelector((state) => state.shopOrder);
   const [currentSelectedAddress, setCurrentSelectedAddress] = useState(null);
-  const [isPaymentStart, setIsPaymentStart] = useState(false);
   const [isCOD, setIsCOD] = useState(false);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
   const dispatch = useDispatch();
@@ -35,7 +34,7 @@ function ShoppingCheckout() {
     if (orderConfirmed) {
       setTimeout(() => {
         navigate("/home");
-      }, 3000); // Redirect to home after 3 seconds
+      }, 3000); 
     }
   }, [orderConfirmed, navigate]);
 
@@ -54,15 +53,22 @@ function ShoppingCheckout() {
       });
       return;
     }
+
+    if (paymentMethod === "online") {
+      // Redirect to GPay component and pass the total amount
+      navigate("/gpay", { state: { totalAmount: totalCartAmount } });
+      return;
+    }
+
     const orderData = {
       userId: user?.id,
       cartId: cartItems?._id,
-      cartItems: cartItems.items.map((singleCartItem) => ({
-        productId: singleCartItem?.productId,
-        title: singleCartItem?.title,
-        image: singleCartItem?.image,
-        price: singleCartItem?.salePrice > 0 ? singleCartItem?.salePrice : singleCartItem?.price,
-        quantity: singleCartItem?.quantity,
+      cartItems: cartItems.items.map((item) => ({
+        productId: item?.productId,
+        title: item?.title,
+        image: item?.image,
+        price: item?.salePrice > 0 ? item?.salePrice : item?.price,
+        quantity: item?.quantity,
       })),
       addressInfo: {
         addressId: currentSelectedAddress?._id,
@@ -76,22 +82,11 @@ function ShoppingCheckout() {
       paymentMethod: paymentMethod,
       paymentStatus: paymentMethod === "cod" ? "pending" : "pending",
       totalAmount: totalCartAmount,
-      orderDate: new Date(),
-      orderUpdateDate: new Date(),
-      paymentId: "",
-      payerId: "",
     };
 
     dispatch(createNewOrder(orderData)).then((data) => {
       if (data?.payload?.success) {
-        if (paymentMethod === "paypal") {
-          setIsPaymentStart(true);
-        } else {
-          setIsCOD(true);
-          setOrderConfirmed(true);
-        }
-      } else {
-        setIsPaymentStart(false);
+        setOrderConfirmed(true);
       }
     });
   }
@@ -99,7 +94,7 @@ function ShoppingCheckout() {
   return (
     <div className="flex flex-col">
       <div className="relative h-[300px] w-full overflow-hidden">
-        <img src={img} className="h-full w-full object-cover object-center" alt="Header" />
+        <img src={img} className="h-full w-full object-cover object-center mt-[2rem]" alt="Header" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 p-5">
         <Address
@@ -119,11 +114,11 @@ function ShoppingCheckout() {
             </div>
           </div>
           <div className="mt-4 w-full space-y-4">
-            <Button onClick={() => handleInitiatePayment('paypal')} className="w-full">
-              {isPaymentStart ? "Processing Paypal Payment..." : "Checkout with Paypal"}
-            </Button>
             <Button onClick={() => handleInitiatePayment('cod')} className="w-full">
               {isCOD ? "Processing COD Order..." : "Checkout with Cash on Delivery"}
+            </Button>
+            <Button onClick={() => handleInitiatePayment('online')} className="w-full">
+              Continue with Online Payment
             </Button>
           </div>
           {orderConfirmed && (
