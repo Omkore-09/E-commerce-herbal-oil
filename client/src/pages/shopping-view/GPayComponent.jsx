@@ -48,6 +48,7 @@ function GPayComponent() {
             type="file"
             accept="image/*"
             onChange={handleScreenshotUpload}
+            required
             className="border-2 border-green-300 rounded-md p-2 w-full focus:outline-none focus:border-green-600 transition duration-300"
           />
           <label className="text-green-800 font-semibold">Transaction ID</label>
@@ -56,6 +57,7 @@ function GPayComponent() {
             placeholder="Enter Transaction ID"
             value={transactionId}
             onChange={(e) => setTransactionId(e.target.value)}
+            required
             className="border-2 border-green-300 rounded-md p-2 w-full focus:outline-none focus:border-green-600 transition duration-300"
           />
           <Button
