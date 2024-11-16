@@ -16,6 +16,7 @@ function AuthLogin() {
   const dispatch = useDispatch();
   const { toast } = useToast();
    const navigate = useNavigate();
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
 
   function onSubmit(event) {
     event.preventDefault();
