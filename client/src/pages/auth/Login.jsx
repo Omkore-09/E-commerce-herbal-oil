@@ -21,6 +21,12 @@ function AuthLogin() {
 
     dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
+         if (user?.role === 'admin') {
+          navigate('/admin/dashboard');
+        } else {
+          navigate('/shop/home');
+        }
+
         toast({
           title: data?.payload?.message,
         });
