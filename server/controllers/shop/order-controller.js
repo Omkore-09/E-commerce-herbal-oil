@@ -1,8 +1,8 @@
+// controllers/orderController.js
 const Order = require("../../models/Order");
 const Cart = require("../../models/Cart");
 const Product = require("../../models/Product");
 
-// Create Order
 const createOrder = async (req, res) => {
   try {
     const {
@@ -16,26 +16,16 @@ const createOrder = async (req, res) => {
       screenshotUrl = null,
     } = req.body;
 
-    // Validate required fields
+    // Check if required fields are present
     if (!userId || !cartId || !cartItems || !addressInfo || !paymentMethod || totalAmount === undefined) {
-      return res.status(400).json({ success: false, message: "Missing required fields." });
+      console.error("Missing required fields in request body");
+      return res.status(400).json({
+        success: false,
+        message: "Required fields are missing",
+      });
     }
 
-    // Validate cart existence and content
-    const cart = await Cart.findById(cartId);
-    if (!cart || cart.cartItems.length === 0) {
-      return res.status(400).json({ success: false, message: "Invalid or empty cart." });
-    }
-
-    // Check stock levels
-    for (const item of cartItems) {
-      const product = await Product.findById(item.productId);
-      if (!product || product.totalStock < item.quantity) {
-        return res.status(400).json({ success: false, message: `Insufficient stock for product: ${item.title}` });
-      }
-    }
-
-    // Create the order
+    // Create new order object
     const newOrder = new Order({
       userId,
       cartId,
@@ -48,69 +38,85 @@ const createOrder = async (req, res) => {
       screenshotUrl,
     });
 
+    // Save the new order to the database
     const savedOrder = await newOrder.save();
+    console.log("Order successfully created:", savedOrder); // Log order creation for verification
 
-    // Clear the cart and update stock
+    // Clear the cart after order creation
     await Cart.findByIdAndDelete(cartId);
+
+    // Decrease product stock quantities based on the order
     for (const item of cartItems) {
-      await Product.findByIdAndUpdate(item.productId, { $inc: { totalStock: -item.quantity } });
+      await Product.findByIdAndUpdate(item.productId, {
+        $inc: { totalStock: -item.quantity },
+      });
     }
 
-    res.status(201).json({ success: true, message: "Order created successfully", data: savedOrder });
+    res.status(201).json({
+      success: true,
+      message: "Order created successfully",
+      data: savedOrder,
+    });
   } catch (error) {
-    console.error("Error creating order:", error.message);
-    res.status(500).json({ success: false, message: "Error creating order" });
+    console.error("Error creating order:", error); // Log error for debugging
+    res.status(500).json({
+      success: false,
+      message: "Error creating order",
+    });
   }
 };
 
-// Get all orders by user
 const getAllOrdersByUser = async (req, res) => {
   try {
     const { userId } = req.params;
-    const { page = 1, limit = 10, sortBy = "orderDate", order = "desc" } = req.query;
 
-    const orders = await Order.find({ userId })
-      .sort({ [sortBy]: order === "desc" ? -1 : 1 })
-      .skip((page - 1) * limit)
-      .limit(parseInt(limit));
-
-    const totalOrders = await Order.countDocuments({ userId });
+    const orders = await Order.find({ userId });
 
     if (!orders.length) {
-      return res.status(404).json({ success: false, message: "No orders found!" });
+      console.log("No orders found for user:", userId);
+      return res.status(404).json({
+        success: false,
+        message: "No orders found!",
+      });
     }
 
     res.status(200).json({
       success: true,
       data: orders,
-      totalOrders,
-      totalPages: Math.ceil(totalOrders / limit),
-      currentPage: page,
     });
   } catch (error) {
-    console.error("Error fetching orders:", error.message);
-    res.status(500).json({ success: false, message: "Some error occurred!" });
+    console.error("Error fetching orders:", error);
+    res.status(500).json({
+      success: false,
+      message: "Some error occurred!",
+    });
   }
 };
 
-// Get order details
 const getOrderDetails = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const order = await Order.findById(id).populate({
-      path: "cartItems.productId",
-      select: "title image price",
-    });
+    const order = await Order.findById(id);
 
     if (!order) {
-      return res.status(404).json({ success: false, message: "Order not found!" });
+      console.log("Order not found:", id);
+      return res.status(404).json({
+        success: false,
+        message: "Order not found!",
+      });
     }
 
-    res.status(200).json({ success: true, data: order });
+    res.status(200).json({
+      success: true,
+      data: order,
+    });
   } catch (error) {
-    console.error("Error fetching order details:", error.message);
-    res.status(500).json({ success: false, message: "Some error occurred!" });
+    console.error("Error fetching order details:", error);
+    res.status(500).json({
+      success: false,
+      message: "Some error occurred!",
+    });
   }
 };
 
