@@ -33,6 +33,7 @@ import welcomeImage2 from '../../assets/p1.jpg';
 import Customer1 from '../../assets/ba1.jpg'
 import Customer2 from '../../assets/ba6.jpg'
 import Customer3 from '../../assets/ba3.jpg'
+import CustomerReviews from "@/components/shopping-view/CustomerReviews";
 // import { useToast } from "@/components/ui/use-toast";
 
 const servicesProvided = [
@@ -251,7 +252,7 @@ const ShoppingHome = () => {
             {" "}
             Customer Reviews{" "}
           </h2>
-                <ReviewCarousel />
+                 <CustomerReviews />
                 
       
       <ProductDetailsDialog
