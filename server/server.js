@@ -12,6 +12,7 @@ const shopCartRouter = require('./routes/shop/cart-routes');
 const shopAddressRouter = require("./routes/shop/address-routes");
 const shopOrderRouter = require("./routes/shop/order-routes");
 const adminOrderRouter = require("./routes/admin/order-routes");
+const reviewRoutes= require("./routes/shop/review_model");
 
 // db connection
 mongoose.connect('mongodb+srv://adivasinilambariherbalhairoil:Omkar123@cluster0.cwjj9.mongodb.net/')
@@ -50,6 +51,7 @@ app.use('/api/shop/cart', shopCartRouter);
 app.use('/api/shop/address', shopAddressRouter);
 app.use('/api/shop/order', shopOrderRouter);
 app.use('/api/admin/orders', adminOrderRouter);
+app.use("/api/reviews", require("./routes/shop/review_model"));
 
 // Static files (serving frontend)
 app.use(express.static(path.join(__dirname, 'client/dist')));
