@@ -27,6 +27,7 @@ import WhatsAppIcon from "./components/shopping-view/WhatsAppIcon"
 import LoadingSkeleton from "./components/shopping-view/LoadingSkeleton"
 import MoreResults from "./pages/shopping-view/MoreResults"
 import GPayComponent from "./pages/shopping-view/GPayComponent"
+import AllReviews from "./components/shopping-view/All_reviews"
 
 function App() {
  
@@ -55,6 +56,7 @@ function App() {
           <Route path="ingredients" element={<IngredientsPage />} />
           <Route path="contact-us" element={<ContactUs />} />
           <Route path="results" element={<MoreResults />} />
+       <Route path="all-reviews" element={<AllReviews />} />
        </Route>
         
         <Route path="/auth" element={<AuthLayout />}>
@@ -85,6 +87,7 @@ function App() {
          
           <Route path="checkout" element={<ShoppingCheckout />} />
           <Route path="account" element={<ShoppingAccount />} />
+      <Route path="all-reviews" element={<AllReviews />} />
         </Route>
 
         <Route path="/shop/aboutus" element={<AboutUs />} />
