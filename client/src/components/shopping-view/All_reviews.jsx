@@ -8,7 +8,7 @@ const AllReviews = () => {
   useEffect(() => {
     // Fetch all reviews from the database
     axios
-      .get("http://localhost:5000/api/reviews") // Ensure this endpoint returns all reviews
+      .get("https://e-commerce-herbal-oil-backend.onrender.com/api/reviews") // Ensure this endpoint returns all reviews
       .then((response) => {
         setReviews(response.data);
         setLoading(false);
