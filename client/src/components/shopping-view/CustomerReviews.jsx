@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const CustomerReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -44,6 +46,12 @@ const CustomerReviews = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleViewAll = () => {
+    navigate('/all-reviews'); // This will navigate to the All Reviews component
+  };
+
   return (
     <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
       <h3 className="text-2xl font-bold mb-4 text-center">Customer Reviews</h3>
@@ -69,6 +77,16 @@ const CustomerReviews = () => {
         ) : (
           <p className="text-gray-600">No reviews yet. Be the first to leave a review!</p>
         )}
+      </div>
+
+      {/* View All Reviews Button */}
+      <div className="text-center mt-4">
+        <button
+          onClick={handleViewAll}
+          className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition-colors"
+        >
+          View All Reviews
+        </button>
       </div>
 
       {/* Review submission form */}
