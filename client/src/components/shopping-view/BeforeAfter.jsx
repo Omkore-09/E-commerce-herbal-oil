@@ -9,7 +9,7 @@ import Customer6 from '../../assets/ba7.jpg'
 import Customer7 from '../../assets/ba8.jpg'
 import Customer8 from '../../assets/ba9.jpg'
 import Customer9 from '../../assets/ba10.jpg'
-import Customer10 from '../../assets/ba10.jpg'
+// import Customer10 from '../../assets/ba10.jpg'
 
 const images = [
   {
@@ -57,11 +57,7 @@ const images = [
     name: 'Customer 9',
     problem: ' '
   },
-  {
-    src: Customer10,
-    name: 'Customer 10',
-    problem: ' '
-  },
+  
   
 ];
 
