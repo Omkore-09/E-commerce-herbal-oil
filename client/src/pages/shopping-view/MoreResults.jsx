@@ -56,11 +56,7 @@ const images = [
     name: 'Customer 9',
     problem: ' ',
   },
-  {
-    src: Customer10,
-    name: 'Customer 10',
-    problem: ' ',
-  },
+  
 ];
 
 const MoreResults = () => {
